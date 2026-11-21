@@ -16,6 +16,11 @@ public class SlotWaktu {
     private int durasiJam;
 
     public SlotWaktu(LocalDate tanggal, int jamMulai, int durasiJam) {
+        
+        if (durasiJam <= 0 || jamMulai < 6 || jamMulai > 23) {
+        throw new IllegalArgumentException("Jam mulai atau durasi sewa tidak valid!");
+        }
+        
         this.tanggal = tanggal;
         this.jamMulai = jamMulai;
         this.durasiJam = durasiJam;

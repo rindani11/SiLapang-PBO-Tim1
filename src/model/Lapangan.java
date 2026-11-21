@@ -14,6 +14,11 @@ public abstract class Lapangan {
     private int tarifPerJam;
 
     public Lapangan(String kode, String nama, int tarifPerJam) {
+        
+        if (tarifPerJam <= 0) {
+        throw new IllegalArgumentException("Tarif per jam harus lebih dari 0!");
+        }
+        
         this.kode = kode;
         this.nama = nama;
         this.tarifPerJam = tarifPerJam;

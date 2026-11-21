@@ -20,6 +20,11 @@ public class Reservasi {
     private int totalBiaya;
 
     public Reservasi(String kode, Penyewa penyewa, Lapangan lapangan, LocalDate tgl, int jamMulai, int durasi) {
+        
+        if (this.status == StatusReservasi.TERKONFIRMASI) {
+        throw new IllegalStateException("Reservasi ini sudah dibayar!");
+        }
+        
         this.kode = kode;
         this.penyewa = penyewa;
         this.lapangan = lapangan;
