@@ -14,6 +14,11 @@ public abstract class Pengguna {
     private String nama;
 
     public Pengguna(String id, String nama) {
+        
+        if (id == null || id.isBlank() || nama == null || nama.isBlank()) {
+        throw new IllegalArgumentException("ID dan nama pengguna wajib diisi!");
+        }    
+        
         this.id = id;
         this.nama = nama;
     }
@@ -21,6 +26,8 @@ public abstract class Pengguna {
     public String getId() { return id; }
     public String getNama() { return nama; }
     public abstract String peran();
+    
+    
 }
     
 
