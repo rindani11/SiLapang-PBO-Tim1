@@ -8,6 +8,7 @@ import model.*;
 import payment.Pembayaran;
 import repository.ReservasiRepository;
 import java.time.LocalDate;
+import java.util.List;
 
 /**
  *
@@ -31,5 +32,8 @@ public class ReservasiService {
         baru.bayar(metode);
         repo.simpan(baru);
         return baru;
+    }
+    public List<Reservasi> lihatSemuaReservasi() {
+        return repo.ambilSemua();
     }
 }
