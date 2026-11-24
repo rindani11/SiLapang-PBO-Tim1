@@ -1,0 +1,439 @@
+<mxfile host="app.diagrams.net" modified="2026-11-24T09:43:00.000Z" agent="Gemini" version="24.7.17" type="device">
+  <diagram id="class-diagram-test-v3" name="Class Diagram Test v3">
+    <mxGraphModel dx="1440" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1440" pageHeight="780" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ROW 1: STATUS RESERVASI, RESERVASI SERVICE, RESERVASI REPOSITORY -->
+
+        <!-- Enumeration: StatusReservasi (package model) -->
+        <mxCell id="cls_status" value="&lt;span style=&quot;font-weight: normal; font-size: 12px;&quot;&gt;«enumeration»&lt;/span&gt;&lt;br&gt;&lt;b&gt;StatusReservasi&lt;/b&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=46;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="50" y="40" width="250" height="114" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_status_vals" value="MENUNGGU_PEMBAYARAN&lt;br&gt;TERKONFIRMASI" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=8;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_status">
+          <mxGeometry y="46" width="250" height="68" as="geometry" />
+        </mxCell>
+
+        <!-- Class: ReservasiService (package service - SUT) -->
+        <mxCell id="cls_service" value="ReservasiService" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=32;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="420" y="30" width="360" height="148" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_service_attr" value="- repo : ReservasiRepository" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_service">
+          <mxGeometry y="32" width="360" height="32" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_service_sep" value="" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" vertex="1" parent="cls_service">
+          <mxGeometry y="64" width="360" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_service_meth" value="+ ReservasiService(repo : ReservasiRepository)&lt;br&gt;+ buatReservasi(...) : Reservasi&lt;br&gt;+ lihatSemuaReservasi() : List&amp;lt;Reservasi&amp;gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_service">
+          <mxGeometry y="72" width="360" height="76" as="geometry" />
+        </mxCell>
+
+        <!-- Interface: ReservasiRepository (package repository) -->
+        <mxCell id="cls_repo_if" value="&lt;span style=&quot;font-weight: normal; font-size: 12px;&quot;&gt;«interface»&lt;/span&gt;&lt;br&gt;&lt;b&gt;ReservasiRepository&lt;/b&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=46;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1025" y="38" width="290" height="132" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_repo_if_attr" value="" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=4;spacingBottom=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_repo_if">
+          <mxGeometry y="46" width="290" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_repo_if_sep" value="" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" vertex="1" parent="cls_repo_if">
+          <mxGeometry y="68" width="290" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_repo_if_meth" value="+ simpan(reservasi : Reservasi) : void&lt;br&gt;+ ambilSemua() : List&amp;lt;Reservasi&amp;gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_repo_if">
+          <mxGeometry y="76" width="290" height="56" as="geometry" />
+        </mxCell>
+
+        <!-- ROW 2: PENYEWA, RESERVASISERVICETEST (CENTER), FILE RESERVASI REPOSITORY -->
+
+        <!-- Class: Penyewa (package model) -->
+        <mxCell id="cls_penyewa" value="Penyewa" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=32;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="50" y="245" width="250" height="114" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_penyewa_attr" value="" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=4;spacingBottom=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_penyewa">
+          <mxGeometry y="32" width="250" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_penyewa_sep" value="" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" vertex="1" parent="cls_penyewa">
+          <mxGeometry y="54" width="250" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_penyewa_meth" value="+ Penyewa(id : String, nama : String)&lt;br&gt;+ peran() : String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_penyewa">
+          <mxGeometry y="62" width="250" height="52" as="geometry" />
+        </mxCell>
+
+        <!-- Class: ReservasiServiceTest (package service) -->
+        <mxCell id="cls_test" value="ReservasiServiceTest" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=32;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#000000;strokeWidth=2;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="410" y="244" width="380" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_test_attr" value="" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=4;spacingBottom=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_test">
+          <mxGeometry y="32" width="380" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_test_sep" value="" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" vertex="1" parent="cls_test">
+          <mxGeometry y="54" width="380" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_test_meth" value="&lt;u&gt;+ main(args : String[]) : void&lt;/u&gt;&lt;br&gt;&lt;u&gt;~ cek(kondisi : boolean, pesan : String) : void&lt;/u&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_test">
+          <mxGeometry y="62" width="380" height="54" as="geometry" />
+        </mxCell>
+
+        <!-- Class: FileReservasiRepository (package repository) -->
+        <mxCell id="cls_repo_impl" value="FileReservasiRepository" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=32;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1025" y="245" width="290" height="114" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_repo_impl_attr" value="" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=4;spacingBottom=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_repo_impl">
+          <mxGeometry y="32" width="290" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_repo_impl_sep" value="" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" vertex="1" parent="cls_repo_impl">
+          <mxGeometry y="54" width="290" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_repo_impl_meth" value="+ simpan(reservasi : Reservasi) : void&lt;br&gt;+ ambilSemua() : List&amp;lt;Reservasi&amp;gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_repo_impl">
+          <mxGeometry y="62" width="290" height="52" as="geometry" />
+        </mxCell>
+
+        <!-- ROW 3: RESERVASI, ABSTRACT LAPANGAN, INTERFACE PEMBAYARAN -->
+
+        <!-- Class: Reservasi (package model) -->
+        <mxCell id="cls_reservasi" value="Reservasi" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=32;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="50" y="430" width="250" height="148" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_reservasi_attr" value="- kode : String&lt;br&gt;- status : StatusReservasi&lt;br&gt;- totalBiaya : int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_reservasi">
+          <mxGeometry y="32" width="250" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_reservasi_sep" value="" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" vertex="1" parent="cls_reservasi">
+          <mxGeometry y="92" width="250" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_reservasi_meth" value="+ getStatus() : StatusReservasi&lt;br&gt;+ getTotalBiaya() : int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_reservasi">
+          <mxGeometry y="100" width="250" height="48" as="geometry" />
+        </mxCell>
+
+        <!-- Abstract Class: Lapangan (package model) -->
+        <mxCell id="cls_lapangan" value="&lt;span style=&quot;font-weight: normal; font-size: 12px;&quot;&gt;«abstract»&lt;/span&gt;&lt;br&gt;&lt;i&gt;&lt;b&gt;Lapangan&lt;/b&gt;&lt;/i&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=46;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="440" y="425" width="320" height="156" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_lapangan_attr" value="- kode : String&lt;br&gt;- nama : String&lt;br&gt;- tarifPerJam : int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_lapangan">
+          <mxGeometry y="46" width="320" height="58" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_lapangan_sep" value="" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" vertex="1" parent="cls_lapangan">
+          <mxGeometry y="104" width="320" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_lapangan_meth" value="+ Lapangan(kode, nama, tarifPerJam)&lt;br&gt;+ &lt;i&gt;hitungBiaya(durasiJam : int, jamMulai : int) : int&lt;/i&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_lapangan">
+          <mxGeometry y="112" width="320" height="44" as="geometry" />
+        </mxCell>
+
+        <!-- Interface: Pembayaran (package payment) -->
+        <mxCell id="cls_pembayaran" value="&lt;span style=&quot;font-weight: normal; font-size: 12px;&quot;&gt;«interface»&lt;/span&gt;&lt;br&gt;&lt;b&gt;Pembayaran&lt;/b&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=46;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1045" y="435" width="250" height="114" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_pembayaran_attr" value="" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=4;spacingBottom=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_pembayaran">
+          <mxGeometry y="46" width="250" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_pembayaran_sep" value="" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" vertex="1" parent="cls_pembayaran">
+          <mxGeometry y="68" width="250" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_pembayaran_meth" value="+ bayar(jumlah : int) : boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_pembayaran">
+          <mxGeometry y="76" width="250" height="38" as="geometry" />
+        </mxCell>
+
+        <!-- ROW 4: CONCRETE SUBCLASSES USED IN TEST -->
+
+        <!-- Subclass: LapanganFutsal -->
+        <mxCell id="cls_futsal" value="LapanganFutsal" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="320" y="645" width="250" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_futsal_attr" value="" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=4;spacingBottom=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="cls_futsal">
+          <mxGeometry y="30" width="250" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_futsal_sep" value="" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" vertex="1" parent="cls_futsal">
+          <mxGeometry y="48" width="250" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_futsal_meth" value="+ hitungBiaya(durasi, jam) : int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_futsal">
+          <mxGeometry y="56" width="250" height="38" as="geometry" />
+        </mxCell>
+
+        <!-- Subclass: LapanganBadminton -->
+        <mxCell id="cls_badminton" value="LapanganBadminton" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="630" y="645" width="250" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_badminton_attr" value="" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=4;spacingBottom=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="cls_badminton">
+          <mxGeometry y="30" width="250" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_badminton_sep" value="" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" vertex="1" parent="cls_badminton">
+          <mxGeometry y="48" width="250" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_badminton_meth" value="+ hitungBiaya(durasi, jam) : int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_badminton">
+          <mxGeometry y="56" width="250" height="38" as="geometry" />
+        </mxCell>
+
+        <!-- Implementation: PembayaranQRIS -->
+        <mxCell id="cls_qris" value="PembayaranQRIS" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="945" y="645" width="210" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_qris_attr" value="" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=4;spacingBottom=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="cls_qris">
+          <mxGeometry y="30" width="210" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_qris_sep" value="" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" vertex="1" parent="cls_qris">
+          <mxGeometry y="48" width="210" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_qris_meth" value="+ bayar(jumlah : int) : boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_qris">
+          <mxGeometry y="56" width="210" height="38" as="geometry" />
+        </mxCell>
+
+        <!-- Implementation: PembayaranTunai -->
+        <mxCell id="cls_tunai" value="PembayaranTunai" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1185" y="645" width="210" height="94" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_tunai_attr" value="" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=4;spacingBottom=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="cls_tunai">
+          <mxGeometry y="30" width="210" height="18" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_tunai_sep" value="" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" vertex="1" parent="cls_tunai">
+          <mxGeometry y="48" width="210" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_tunai_meth" value="+ bayar(jumlah : int) : boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_tunai">
+          <mxGeometry y="56" width="210" height="38" as="geometry" />
+        </mxCell>
+
+        <!-- EDGES -->
+
+        <!-- Association (DIP): ReservasiService -> ReservasiRepository -->
+        <mxCell id="edge_srv_repo" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=open;endFill=0;endSize=10;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="cls_service" target="cls_repo_if">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_srv_repo" value="&lt;i&gt;asosiasi (DIP)&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="850" y="76" width="100" height="24" as="geometry" />
+        </mxCell>
+
+        <!-- Realization: FileReservasiRepository implements ReservasiRepository -->
+        <mxCell id="edge_repo_real" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;dashPattern=6 6;endArrow=block;endFill=0;endSize=12;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="cls_repo_impl" target="cls_repo_if">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Dependency: ReservasiServiceTest tests ReservasiService -->
+        <mxCell id="edge_test_srv" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;dashPattern=6 6;endArrow=open;endFill=0;endSize=10;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="cls_test" target="cls_service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_test_srv" value="&lt;i&gt;«test»&lt;/i&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="606" y="198" width="54" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- Dependency: ReservasiServiceTest uses StatusReservasi -->
+        <mxCell id="edge_test_status" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.2;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;dashPattern=6 6;endArrow=open;endFill=0;endSize=10;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="cls_test" target="cls_status">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="486" y="206" />
+              <mxPoint x="175" y="206" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl_test_status" value="&lt;i&gt;«assert»&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="295" y="182" width="66" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- Dependency: ReservasiServiceTest creates Penyewa -->
+        <mxCell id="edge_test_penyewa" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;dashPattern=6 6;endArrow=open;endFill=0;endSize=10;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="cls_test" target="cls_penyewa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_test_penyewa" value="&lt;i&gt;«create»&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="322" y="276" width="66" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- Dependency: ReservasiServiceTest creates FileReservasiRepository -->
+        <mxCell id="edge_test_repo" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;dashed=1;dashPattern=6 6;endArrow=open;endFill=0;endSize=10;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="cls_test" target="cls_repo_impl">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_test_repo" value="&lt;i&gt;«create»&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="875" y="276" width="66" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- Dependency: ReservasiServiceTest verifies Reservasi -->
+        <mxCell id="edge_test_reservasi" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.2;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;dashPattern=6 6;endArrow=open;endFill=0;endSize=10;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="cls_test" target="cls_reservasi">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="486" y="395" />
+              <mxPoint x="175" y="395" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl_test_reservasi" value="&lt;i&gt;«assert»&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="295" y="372" width="66" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- Dependency: ReservasiServiceTest tests Lapangan -->
+        <mxCell id="edge_test_lapangan" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;dashPattern=6 6;endArrow=open;endFill=0;endSize=10;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="cls_test" target="cls_lapangan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_test_lapangan" value="&lt;i&gt;«test» (validasi tarif)&lt;/i&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="606" y="366" width="125" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- Dependency: ReservasiServiceTest uses Pembayaran -->
+        <mxCell id="edge_test_pembayaran" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.8;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;dashPattern=6 6;endArrow=open;endFill=0;endSize=10;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="cls_test" target="cls_pembayaran">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="714" y="395" />
+              <mxPoint x="1170" y="395" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Generalization: LapanganFutsal, LapanganBadminton extend Lapangan -->
+        <mxCell id="edge_futsal_lap" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=block;endFill=0;endSize=12;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="cls_futsal" target="cls_lapangan">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="445" y="614" />
+              <mxPoint x="600" y="614" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_badminton_lap" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=block;endFill=0;endSize=12;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="cls_badminton" target="cls_lapangan">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="755" y="614" />
+              <mxPoint x="600" y="614" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Realization: PembayaranQRIS, PembayaranTunai implement Pembayaran -->
+        <mxCell id="edge_qris_pay" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;dashPattern=6 6;endArrow=block;endFill=0;endSize=12;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="cls_qris" target="cls_pembayaran">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1050" y="614" />
+              <mxPoint x="1170" y="614" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_tunai_pay" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;dashed=1;dashPattern=6 6;endArrow=block;endFill=0;endSize=12;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="cls_tunai" target="cls_pembayaran">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1290" y="614" />
+              <mxPoint x="1170" y="614" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="alur-pengujian-v3" name="Alur Pengujian v3">
+    <mxGraphModel dx="1000" dy="940" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="940" pageHeight="920" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Start Node -->
+        <mxCell id="act_start" value="" style="ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="348" y="24" width="24" height="24" as="geometry" />
+        </mxCell>
+
+        <!-- Setup -->
+        <mxCell id="act_setup" value="&lt;b&gt;Inisialisasi Objek Uji&lt;/b&gt;&lt;br&gt;FileReservasiRepository, ReservasiService,&lt;br&gt;Penyewa (&quot;U99&quot;), LapanganFutsal (Rp100.000), tglUji (+5 hari)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="150" y="76" width="420" height="62" as="geometry" />
+        </mxCell>
+
+        <!-- Skenario 1 -->
+        <mxCell id="act_s1" value="&lt;b&gt;1. Skenario Berhasil&lt;/b&gt;&lt;br&gt;service.buatReservasi(&quot;TEST-01&quot;, p, futsal, tglUji, 19, 2, QRIS)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="150" y="170" width="420" height="54" as="geometry" />
+        </mxCell>
+
+        <!-- Decision 1 -->
+        <mxCell id="dec_s1" value="Status == TERKONFIRMASI&lt;br&gt;&amp;amp;&amp;amp; Total == 240000&lt;br&gt;&amp;amp;&amp;amp; Daftar != kosong?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="210" y="256" width="300" height="92" as="geometry" />
+        </mxCell>
+
+        <!-- Skenario 2 -->
+        <mxCell id="act_s2" value="&lt;b&gt;2. Skenario Gagal 1 — Jadwal Bentrok&lt;/b&gt;&lt;br&gt;service.buatReservasi(&quot;TEST-02&quot;, p, futsal, tglUji, 20, 1, Tunai)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="150" y="384" width="420" height="54" as="geometry" />
+        </mxCell>
+
+        <!-- Decision 2 -->
+        <mxCell id="dec_s2" value="Tertangkap&lt;br&gt;IllegalStateException?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="235" y="472" width="250" height="82" as="geometry" />
+        </mxCell>
+
+        <!-- Skenario 3 -->
+        <mxCell id="act_s3" value="&lt;b&gt;3. Skenario Gagal 2 — Validasi Tarif &amp;lt;= 0&lt;/b&gt;&lt;br&gt;new LapanganBadminton(&quot;L02&quot;, &quot;Badminton B&quot;, 0)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="150" y="590" width="420" height="54" as="geometry" />
+        </mxCell>
+
+        <!-- Decision 3 -->
+        <mxCell id="dec_s3" value="Tertangkap&lt;br&gt;IllegalArgumentException?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="235" y="678" width="250" height="82" as="geometry" />
+        </mxCell>
+
+        <!-- Output Pass -->
+        <mxCell id="act_pass" value="&lt;b&gt;Cetak: &quot;Semua pengujian v3 LULUS!&quot;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="796" width="320" height="44" as="geometry" />
+        </mxCell>
+
+        <!-- End Node Pass -->
+        <mxCell id="act_end_pass" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="346" y="868" width="28" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- AssertionError Box (Fail path) -->
+        <mxCell id="act_fail" value="&lt;b&gt;cek() Gagal&lt;/b&gt;&lt;br&gt;throw new AssertionError(pesan)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="650" y="486" width="230" height="54" as="geometry" />
+        </mxCell>
+
+        <!-- End Node Fail -->
+        <mxCell id="act_end_fail" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="751" y="578" width="28" height="28" as="geometry" />
+        </mxCell>
+
+        <!-- FLOW EDGES -->
+        <mxCell id="f_0" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="act_start" target="act_setup">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="act_setup" target="act_s1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="act_s1" target="dec_s1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_3" value="Ya" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="dec_s1" target="act_s2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="act_s2" target="dec_s2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_5" value="Ya" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="dec_s2" target="act_s3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="act_s3" target="dec_s3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_7" value="Ya" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="dec_s3" target="act_pass">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f_8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="act_pass" target="act_end_pass">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- FAIL BRANCHES -->
+        <mxCell id="f_fail1" value="Tidak" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=open;endFill=0;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="dec_s1" target="act_fail">
+          <mxGeometry x="-0.72" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="605" y="302" />
+              <mxPoint x="605" y="513" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f_fail2" value="Tidak" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=open;endFill=0;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="dec_s2" target="act_fail">
+          <mxGeometry x="-0.4" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f_fail3" value="Tidak" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=open;endFill=0;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="dec_s3" target="act_fail">
+          <mxGeometry x="-0.72" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="605" y="719" />
+              <mxPoint x="605" y="513" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f_fail_end" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=open;endFill=0;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="act_fail" target="act_end_fail">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

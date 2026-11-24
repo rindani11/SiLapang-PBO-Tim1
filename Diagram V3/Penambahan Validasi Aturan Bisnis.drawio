@@ -1,0 +1,62 @@
+<mxfile host="app.diagrams.net" agent="Gemini">
+  <diagram id="class-diagram-v3" name="Class Diagram v3">
+    <mxGraphModel dx="1114" dy="611" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="860" pageHeight="600" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cls_pengguna" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" value="&lt;span style=&quot;font-weight: normal; font-size: 12px;&quot;&gt;«abstract»&lt;/span&gt;&lt;br&gt;&lt;i&gt;&lt;b&gt;Pengguna&lt;/b&gt;&lt;/i&gt;" vertex="1">
+          <mxGeometry height="196" width="290" x="265" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_pengguna_attr" parent="cls_pengguna" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" value="- id : String&lt;br&gt;- nama : String" vertex="1">
+          <mxGeometry height="48" width="290" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_pengguna_sep" parent="cls_pengguna" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="8" width="290" y="98" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_pengguna_meth" parent="cls_pengguna" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" value="+ Pengguna(id : String, nama : String)&lt;br&gt;+ getId() : String&lt;br&gt;+ getNama() : String&lt;br&gt;+ &lt;i&gt;peran() : String&lt;/i&gt;" vertex="1">
+          <mxGeometry height="90" width="290" y="106" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_penyewa" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=32;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" value="Penyewa" vertex="1">
+          <mxGeometry height="126" width="270" x="80" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_penyewa_attr" parent="cls_penyewa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" value="" vertex="1">
+          <mxGeometry height="30" width="270" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_penyewa_sep" parent="cls_penyewa" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="8" width="270" y="62" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_penyewa_meth" parent="cls_penyewa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" value="+ Penyewa(id : String, nama : String)&lt;br&gt;+ peran() : String" vertex="1">
+          <mxGeometry height="56" width="270" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_pengelola" parent="1" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=32;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" value="PengelolaLapangan" vertex="1">
+          <mxGeometry height="166" width="350" x="430" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_pengelola_attr" parent="cls_pengelola" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" value="- daftarLapangan : List&amp;lt;Lapangan&amp;gt;" vertex="1">
+          <mxGeometry height="36" width="350" y="32" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_pengelola_sep" parent="cls_pengelola" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" value="" vertex="1">
+          <mxGeometry height="8" width="350" y="68" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_pengelola_meth" parent="cls_pengelola" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" value="+ PengelolaLapangan(id : String, nama : String)&lt;br&gt;+ tambahLapangan(lapangan : Lapangan) : void&lt;br&gt;+ getDaftarLapangan() : List&amp;lt;Lapangan&amp;gt;&lt;br&gt;+ peran() : String" vertex="1">
+          <mxGeometry height="90" width="350" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_penyewa_pengguna" edge="1" parent="1" source="cls_penyewa" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=block;endFill=0;endSize=12;strokeColor=#000000;strokeWidth=1.5;" target="cls_pengguna" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="215" y="316" />
+              <mxPoint x="410" y="316" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_pengelola_pengguna" edge="1" parent="1" source="cls_pengelola" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;endArrow=block;endFill=0;endSize=12;strokeColor=#000000;strokeWidth=1.5;" target="cls_pengguna" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="605" y="316" />
+              <mxPoint x="410" y="316" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

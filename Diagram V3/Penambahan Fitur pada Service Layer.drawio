@@ -1,0 +1,108 @@
+<mxfile host="app.diagrams.net" modified="2026-11-24T02:10:00.000Z" agent="Gemini" version="24.7.17" type="device">
+  <diagram id="reservasi-service-v3" name="ReservasiService v3">
+    <mxGraphModel dx="1100" dy="720" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="690" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Class: ReservasiService (package service) -->
+        <mxCell id="cls_service" value="ReservasiService" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=34;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="60" width="420" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_service_attr" value="- repo : ReservasiRepository" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_service">
+          <mxGeometry y="34" width="420" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_service_sep" value="" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" vertex="1" parent="cls_service">
+          <mxGeometry y="68" width="420" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_service_meth" value="+ ReservasiService(repo : ReservasiRepository)&lt;br&gt;+ buatReservasi(kode : String, p : Penyewa, l : Lapangan,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;tgl : LocalDate, jam : int, durasi : int,&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;metode : Pembayaran) : Reservasi&lt;br&gt;+ lihatSemuaReservasi() : List&amp;lt;Reservasi&amp;gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_service">
+          <mxGeometry y="76" width="420" height="114" as="geometry" />
+        </mxCell>
+
+        <!-- Interface: ReservasiRepository (package repository) -->
+        <mxCell id="cls_repo" value="&lt;span style=&quot;font-weight: normal; font-size: 12px;&quot;&gt;«interface»&lt;/span&gt;&lt;br&gt;&lt;b&gt;ReservasiRepository&lt;/b&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=48;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="640" y="85" width="280" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_repo_attr" value="" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_repo">
+          <mxGeometry y="48" width="280" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_repo_sep" value="" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" vertex="1" parent="cls_repo">
+          <mxGeometry y="74" width="280" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_repo_meth" value="+ simpan(reservasi : Reservasi) : void&lt;br&gt;+ ambilSemua() : List&amp;lt;Reservasi&amp;gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_repo">
+          <mxGeometry y="82" width="280" height="58" as="geometry" />
+        </mxCell>
+
+        <!-- Interface: Pembayaran (package payment) -->
+        <mxCell id="cls_pembayaran" value="&lt;span style=&quot;font-weight: normal; font-size: 12px;&quot;&gt;«interface»&lt;/span&gt;&lt;br&gt;&lt;b&gt;Pembayaran&lt;/b&gt;" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=48;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="60" y="355" width="250" height="122" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_pembayaran_attr" value="" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_pembayaran">
+          <mxGeometry y="48" width="250" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_pembayaran_sep" value="" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" vertex="1" parent="cls_pembayaran">
+          <mxGeometry y="74" width="250" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_pembayaran_meth" value="+ bayar(jumlah : int) : boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_pembayaran">
+          <mxGeometry y="82" width="250" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- Class: Reservasi (package model) -->
+        <mxCell id="cls_reservasi" value="Reservasi" style="swimlane;fontStyle=1;align=center;verticalAlign=middle;childLayout=stackLayout;horizontal=1;startSize=34;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=0;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;strokeWidth=1.5;fontFamily=Helvetica;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="370" y="355" width="270" height="274" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_reservasi_attr" value="- kode : String&lt;br&gt;- penyewa : Penyewa&lt;br&gt;- lapangan : Lapangan&lt;br&gt;- slot : SlotWaktu&lt;br&gt;- status : StatusReservasi&lt;br&gt;- totalBiaya : int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_reservasi">
+          <mxGeometry y="34" width="270" height="124" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_reservasi_sep" value="" style="line;strokeWidth=1.5;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=#000000;" vertex="1" parent="cls_reservasi">
+          <mxGeometry y="158" width="270" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="cls_reservasi_meth" value="+ getLapangan() : Lapangan&lt;br&gt;+ getSlot() : SlotWaktu&lt;br&gt;+ getStatus() : StatusReservasi&lt;br&gt;+ getTotalBiaya() : int&lt;br&gt;+ bayar(metode : Pembayaran) : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=10;spacingRight=10;spacingTop=6;spacingBottom=6;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="cls_reservasi">
+          <mxGeometry y="166" width="270" height="108" as="geometry" />
+        </mxCell>
+
+        <!-- Edge 1: Association (DIP) ReservasiService -> ReservasiRepository -->
+        <mxCell id="edge_service_repo" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=open;endFill=0;endSize=10;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="cls_service" target="cls_repo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_service_repo" value="&lt;i&gt;asosiasi (DIP)&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="505" y="128" width="100" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_repo_role" value="- repo" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="582" y="160" width="50" height="22" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_repo_mult" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="612" y="132" width="24" height="22" as="geometry" />
+        </mxCell>
+
+        <!-- Edge 2: Dependency ReservasiService ..> Pembayaran -->
+        <mxCell id="edge_service_pembayaran" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.2976;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;dashPattern=6 6;endArrow=open;endFill=0;endSize=10;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="cls_service" target="cls_pembayaran">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_service_pembayaran" value="&lt;i&gt;dependensi&lt;/i&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="193" y="290" width="85" height="24" as="geometry" />
+        </mxCell>
+
+        <!-- Edge 3: Dependency ReservasiService ..> Reservasi -->
+        <mxCell id="edge_service_reservasi" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.8333;exitY=1;exitDx=0;exitDy=0;entryX=0.1481;entryY=0;entryDx=0;entryDy=0;dashed=1;dashPattern=6 6;endArrow=open;endFill=0;endSize=10;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="cls_service" target="cls_reservasi">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl_service_reservasi" value="&lt;i&gt;dependensi&lt;/i&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="418" y="290" width="85" height="24" as="geometry" />
+        </mxCell>
+
+        <!-- Edge 4: Dependency ReservasiRepository ..> Reservasi -->
+        <mxCell id="edge_repo_reservasi" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;dashed=1;dashPattern=6 6;endArrow=open;endFill=0;endSize=10;strokeColor=#000000;strokeWidth=1.5;" edge="1" parent="1" source="cls_repo" target="cls_reservasi">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="780" y="492" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lbl_repo_reservasi" value="&lt;i&gt;dependensi&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="670" y="466" width="85" height="24" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
