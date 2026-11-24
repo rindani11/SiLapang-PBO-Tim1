@@ -19,11 +19,7 @@ public class Reservasi {
     private StatusReservasi status;
     private int totalBiaya;
 
-    public Reservasi(String kode, Penyewa penyewa, Lapangan lapangan, LocalDate tgl, int jamMulai, int durasi) {
-        
-        if (this.status == StatusReservasi.TERKONFIRMASI) {
-        throw new IllegalStateException("Reservasi ini sudah dibayar!");
-        }
+    public Reservasi(String kode, Penyewa penyewa, Lapangan lapangan, LocalDate tgl, int jamMulai, int durasi) { 
         
         this.kode = kode;
         this.penyewa = penyewa;
@@ -32,15 +28,19 @@ public class Reservasi {
         this.status = StatusReservasi.MENUNGGU_PEMBAYARAN;
         this.totalBiaya = lapangan.hitungBiaya(durasi, jamMulai);
     }
+     public void bayar(Pembayaran metode) {
+         if (this.status == StatusReservasi.TERKONFIRMASI) {
+        throw new IllegalStateException("Reservasi ini sudah dibayar!");
+        }
+        metode.bayar(this.totalBiaya);
+        this.status = StatusReservasi.TERKONFIRMASI;
+        }
 
     public Lapangan getLapangan() { return lapangan; }
     public SlotWaktu getSlot() { return slot; }
     public StatusReservasi getStatus() { return status; }
     public int getTotalBiaya() { return totalBiaya; }
 
-    public void bayar(Pembayaran metode) {
-        if (metode.bayar(totalBiaya)) {
-            this.status = StatusReservasi.TERKONFIRMASI;
-        }
-    }
+   
+    
 }
