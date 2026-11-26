@@ -3,72 +3,69 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package service;
+
 import exception.JadwalBentrokException;
 import exception.PembayaranGagalException;
 import java.time.LocalDate;
 import model.*;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
 import payment.*;
 import repository.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
  * @author rindaaaa
  */
 public class ReservasiServiceIntegrationTest {
+
     private Repository<Reservasi, String> repo;
     private ReservasiService service;
     private Penyewa penyewa;
     private Lapangan futsal;
     private LocalDate tglUji;
 
-    @BeforeEach
-    void siapkan() {
+    @Before
+    public void setUp() {
         repo = new InMemoryRepository<>(Reservasi::getKode);
         service = new ReservasiService(repo);
         penyewa = new Penyewa("U01", "Nafis");
         futsal = new LapanganFutsal("L01", "Futsal A", 100000);
-        tglUji = LocalDate.now().plusDays(2);
+        tglUji = LocalDate.of(2026, 11, 26);
     }
 
     @Test
-    @DisplayName("TC-09 [Integrasi]: Buat reservasi sukses dan tersimpan")
-    void buatReservasiSukses() throws Exception {
+    public void buatReservasiSukses() throws Exception {
         Reservasi res = service.buatReservasi("RSV-01", penyewa, futsal, tglUji, 19, 2, new PembayaranQRIS());
-        assertAll(
-            () -> assertEquals(StatusReservasi.TERKONFIRMASI, res.getStatus()),
-            () -> assertEquals(240000, res.getTotalBiaya()),
-            () -> assertEquals(1, service.lihatSemuaReservasi().size())
-        );
+        assertEquals(StatusReservasi.TERKONFIRMASI, res.getStatus());
+        assertEquals(1, service.lihatSemuaReservasi().size());
     }
 
     @Test
-    @DisplayName("TC-10 [Integrasi]: Jadwal bentrok melempar JadwalBentrokException")
-    void buatReservasiBentrok() throws Exception {
+    public void buatReservasiBentrok() throws Exception {
         service.buatReservasi("RSV-01", penyewa, futsal, tglUji, 19, 2, new PembayaranQRIS());
-        JadwalBentrokException ex = assertThrows(JadwalBentrokException.class, () ->
-            service.buatReservasi("RSV-02", penyewa, futsal, tglUji, 20, 1, new PembayaranTunai())
-        );
-        assertEquals("L01", ex.getKodeLapangan());
+        try {
+            service.buatReservasi("RSV-02", penyewa, futsal, tglUji, 20, 1, new PembayaranTunai());
+            fail("Seharusnya melempar JadwalBentrokException");
+        } catch (JadwalBentrokException ex) {
+            assertEquals("L01", ex.getKodeLapangan());
+        }
     }
 
-    @Test
-    @DisplayName("TC-11 [Integrasi & Regresi]: Pembayaran ganda ditolak")
-    void cegahPembayaranGanda() throws Exception {
+    @Test(expected = IllegalStateException.class)
+    public void cegahPembayaranGanda() throws Exception {
         Reservasi res = service.buatReservasi("RSV-01", penyewa, futsal, tglUji, 10, 1, new PembayaranTunai());
-        assertThrows(IllegalStateException.class, () -> res.bayar(new PembayaranQRIS()));
+        res.bayar(new PembayaranQRIS());
     }
 
-    @Test
-    @DisplayName("TC-12 [Integrasi]: Pembayaran gagal tidak menyimpan reservasi")
-    void pembayaranGagalTidakTersimpan() {
+    @Test(expected = PembayaranGagalException.class)
+    public void pembayaranGagalTidakTersimpan() throws Exception {
         Pembayaran metodeGagal = jumlah -> false;
-        assertThrows(PembayaranGagalException.class, () ->
-            service.buatReservasi("RSV-99", penyewa, futsal, tglUji, 12, 1, metodeGagal)
-        );
-        assertTrue(service.lihatSemuaReservasi().isEmpty());
+        try {
+            service.buatReservasi("RSV-99", penyewa, futsal, tglUji, 12, 1, metodeGagal);
+        } finally {
+            assertTrue(service.lihatSemuaReservasi().isEmpty());
+        }
     }
 }

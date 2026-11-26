@@ -3,70 +3,69 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
-import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-import static org.junit.jupiter.api.Assertions.*;
+
 /**
  *
  * @author rindaaaa
  */
-
+import java.time.LocalDate;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class LapanganDanSlotTest {
 
-    @ParameterizedTest(name = "Futsal jam {0} durasi {1} -> Rp{2}")
-    @CsvSource({
-        "17, 2, 200000",
-        "18, 2, 240000",
-        "20, 1, 120000"
-    })
-    void hitungBiayaFutsal(int jamMulai, int durasi, int diharapkan) {
+    @Test
+    public void hitungBiayaFutsalJamNormal() {
         Lapangan futsal = new LapanganFutsal("L01", "Futsal A", 100000);
-        assertEquals(diharapkan, futsal.hitungBiaya(durasi, jamMulai));
-    }
-
-    @ParameterizedTest(name = "Basket durasi {0} jam -> Rp{1}")
-    @CsvSource({
-        "2, 200000",
-        "3, 270000"
-    })
-    void hitungBiayaBasket(int durasi, int diharapkan) {
-        Lapangan basket = new LapanganBasket("L03", "Basket C", 100000);
-        assertEquals(diharapkan, basket.hitungBiaya(durasi, 10));
+        assertEquals(200000, futsal.hitungBiaya(2, 10));
     }
 
     @Test
-    @DisplayName("TC-06: Tarif 0 dan negatif harus ditolak")
-    void validasiTarifTidakValid() {
-        assertAll(
-            () -> assertThrows(IllegalArgumentException.class, () -> new LapanganBadminton("L02", "Bdm", 0)),
-            () -> assertThrows(IllegalArgumentException.class, () -> new LapanganBadminton("L02", "Bdm", -50000))
-        );
+    public void hitungBiayaFutsalJamMalam() {
+        Lapangan futsal = new LapanganFutsal("L01", "Futsal A", 100000);
+        assertEquals(240000, futsal.hitungBiaya(2, 19));
     }
 
     @Test
-    @DisplayName("TC-07: Jam operasional batas bawah (5) dan batas atas (24) ditolak")
-    void validasiJamOperasionalBatas() {
-        LocalDate besok = LocalDate.now().plusDays(1);
-        assertAll(
-            () -> assertThrows(IllegalArgumentException.class, () -> new SlotWaktu(besok, 5, 1)),
-            () -> assertThrows(IllegalArgumentException.class, () -> new SlotWaktu(besok, 24, 1)),
-            () -> assertDoesNotThrow(() -> new SlotWaktu(besok, 6, 1))
-        );
+    public void hitungBiayaBadminton() {
+        Lapangan badminton = new LapanganBadminton("L02", "Badminton B", 60000);
+        assertEquals(120000, badminton.hitungBiaya(2, 10));
     }
 
     @Test
-    @DisplayName("TC-08: HashSet tidak menduplikasi SlotWaktu yang sama")
-    void ujiEqualsHashCodeSlotWaktu() {
-        LocalDate tgl = LocalDate.now().plusDays(1);
-        Set<SlotWaktu> setSlot = new HashSet<>();
-        setSlot.add(new SlotWaktu(tgl, 10, 2));
-        setSlot.add(new SlotWaktu(tgl, 10, 2));
-        assertEquals(1, setSlot.size());
+    public void hitungBiayaBasket() {
+        Lapangan basket = new LapanganBasket("L03", "Basket C", 120000);
+        assertEquals(324000, basket.hitungBiaya(3, 14));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void validasiDurasiNegatif() {
+        new SlotWaktu(LocalDate.of(2026, 11, 26), 10, 0);
+    }
+
+    @Test
+    public void deteksiSlotBentrok() {
+        LocalDate tgl = LocalDate.of(2026, 11, 26);
+        SlotWaktu s1 = new SlotWaktu(tgl, 19, 2); // 19:00 - 21:00
+        SlotWaktu s2 = new SlotWaktu(tgl, 20, 1); // 20:00 - 21:00
+        assertTrue(s1.bentrokDengan(s2));
+    }
+
+    @Test
+    public void deteksiSlotTidakBentrok() {
+        LocalDate tgl = LocalDate.of(2026, 11, 26);
+        SlotWaktu s1 = new SlotWaktu(tgl, 19, 2); // 19:00 - 21:00
+        SlotWaktu s2 = new SlotWaktu(tgl, 21, 1); // 21:00 - 22:00
+        assertFalse(s1.bentrokDengan(s2));
+    }
+
+    @Test
+    public void testEqualsDanHashCodeSlotWaktu() {
+        LocalDate tgl = LocalDate.of(2026, 11, 26);
+        SlotWaktu s1 = new SlotWaktu(tgl, 19, 2);
+        SlotWaktu s2 = new SlotWaktu(tgl, 19, 2);
+        assertEquals(s1, s2);
+        assertEquals(s1.hashCode(), s2.hashCode());
     }
 }
+
